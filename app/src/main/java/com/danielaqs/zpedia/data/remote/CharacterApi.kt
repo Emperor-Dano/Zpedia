@@ -3,6 +3,7 @@ package com.danielaqs.zpedia.data.remote
 import com.danielaqs.zpedia.data.remote.model.Character
 import com.danielaqs.zpedia.data.remote.model.CharacterDetail
 import com.danielaqs.zpedia.data.remote.model.CharacterList
+import com.danielaqs.zpedia.utils.Constants
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -17,14 +18,14 @@ interface CharacterApi {
         https://dragonball-api.com/api/characters/id
     */
 
-    @GET("api/characters")
+    @GET(Constants.ENDPOINT_ALL)
     suspend fun getCharacters(
-        @Query("limit") limit: Int = 58
+        @Query(Constants.LIMIT) limit: Int = Constants.LIMIT_VAL
     ): CharacterList
 
-    @GET("api/characters/{id}")
+    @GET(Constants.ENDPOINT_DETAIL)
     suspend fun getCharacterDetail(
-        @Path("id") id: Int?
+        @Path(Constants.ID) id: Int?
     ): CharacterDetail
 
 }

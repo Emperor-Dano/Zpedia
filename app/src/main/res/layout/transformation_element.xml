@@ -6,8 +6,7 @@
     android:layout_margin="8dp"
     card_view:cardCornerRadius="16dp"
     card_view:cardElevation="6dp"
-    card_view:cardBackgroundColor="#66FFFFFF">
-
+    card_view:cardBackgroundColor="#00FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,15 +16,15 @@
         android:gravity="center_horizontal">
 
         <ImageView
-            android:id="@+id/ivThumbnail"
+            android:id="@+id/tImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="fitCenter"
-            android:contentDescription="@string/desc"
+            android:contentDescription="@string/image_desc"
             android:layout_marginBottom="8dp" />
 
         <TextView
-            android:id="@+id/Ch_detail_name"
+            android:id="@+id/tName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
@@ -34,10 +33,10 @@
             android:layout_marginBottom="4dp" />
 
         <TextView
-            android:id="@+id/ChAffiliation"
+            android:id="@+id/tKi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/affiliation"
+            android:text="@string/afiliacion"
             android:textSize="14sp"
             android:textColor="#555555" />
 

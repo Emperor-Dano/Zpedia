@@ -1,5 +1,20 @@
 <resources>
     <string name="app_name">Zpedia</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="desc">Desc</string>
+    <string name="affiliation">Affiliation</string>
+    <string name="character_image">Character image</string>
+    <string name="ki">Ki:</string>
+    <string name="ki_m_ximo">Ki máximo:</string>
+    <string name="raza">Raza:</string>
+    <string name="genero">Género:</string>
+    <string name="afiliacion">Afiliación:</string>
+    <string name="descripcion">Descripción:</string>
+    <string name="transformaciones">Transformaciones</string>
+    <string name="image_desc">Image Desc</string>
+    <string name="id">id</string>
+    <string name="seleccionaste">Seleccionaste:</string>
+    <string name="sin_transformaciones">Sin Transformaciones</string>
+    <string name="logo">Dragon Ball Logo</string>
+    <string name="invalid_id">ID inválido</string>
+
 </resources>

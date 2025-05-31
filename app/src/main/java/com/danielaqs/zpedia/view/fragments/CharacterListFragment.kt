@@ -16,6 +16,7 @@ import com.danielaqs.zpedia.data.remote.CharacterApi
 import com.danielaqs.zpedia.databinding.FragmentCharacterListBinding
 import com.danielaqs.zpedia.utils.Constants
 import com.danielaqs.zpedia.view.CharactersAdapter
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -33,7 +34,7 @@ class CharacterListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCharacterListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -72,19 +73,19 @@ class CharacterListFragment : Fragment() {
             try{
                 //val games = gamesApi.getGames()
                 val characters = gamesApi.getCharacters()
-                Log.d(Constants.LOGTAG, "Respuesta: $characters")
+                //Log.d(Constants.LOGTAG, "Respuesta: $characters")
 
 
                 //binding.rvGames.layoutManager = LinearLayoutManager(requireContext())
-                binding.rvGames.layoutManager = GridLayoutManager(requireContext(), 2)
-                binding.rvGames.adapter = CharactersAdapter(characters.items){ selectedCharacter ->
+                binding.rvCharacters.layoutManager = GridLayoutManager(requireContext(), 2)
+                binding.rvCharacters.adapter = CharactersAdapter(characters.items){ selectedCharacter ->
 
 
-                    /*Toast.makeText(
+                    Toast.makeText(
                         requireContext(),
-                        "Seleccionaste el personaje: ${selectedCharacter.name}",
+                        "${Constants.seleccionaste} ${selectedCharacter.name}",
                         Toast.LENGTH_SHORT
-                    ).show()*/
+                    ).show()
 
 
                     //Manejo del click
@@ -94,14 +95,10 @@ class CharacterListFragment : Fragment() {
                         ))
                         .addToBackStack(null)
                         .commit()
-
-
-
-
-
-
                 }
-
+                Picasso.get()
+                    .load(R.drawable.main_background_2)
+                    .into(binding.backgroundImage)
 
             }
             catch (e: Exception){
@@ -110,18 +107,11 @@ class CharacterListFragment : Fragment() {
             finally {
                 binding.pbLoading.visibility = View.INVISIBLE
             }
-
-
-
-
         }
     }
-
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
-
-
 }

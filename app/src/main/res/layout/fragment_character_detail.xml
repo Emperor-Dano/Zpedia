@@ -4,8 +4,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#141A31"
+    android:background="@color/purple_background"
     tools:context=".view.fragments.GameDetailFragment">
+
+    <!-- Logo at top left -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="0dp"
+        android:layout_gravity="top|start"
+        android:alpha="0.7"
+        android:src="@drawable/main_background"
+        android:contentDescription="@string/logo" />
+
+    <!-- Logo at top right -->
+    <ImageView
+        android:id="@+id/logo2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="0dp"
+        android:layout_gravity="top|end"
+        android:src="@drawable/logo"
+        android:alpha="0.7"
+        android:contentDescription="@string/logo" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,58 +37,123 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintEnd_toEndOf="parent">
 
             <ScrollView
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
+                android:fillViewport="true"
+                android:overScrollMode="never">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="280dp"
+                        android:background="@android:color/transparent"
+                        android:gravity="center">
 
-                    <TextView
-                        android:id="@+id/tvTitle"
+                        <TextView
+                            android:id="@+id/Ch_detail_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/ubuntu_bold"
+                            android:textColor="@color/white"
+                            android:textSize="30sp" />
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/ivImage"
+                            android:layout_width="220dp"
+                            android:layout_height="200dp"
+                            android:layout_centerInParent="true" />
+                    </RelativeLayout>
+
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/ubuntu_bold"
-                        android:gravity="center_horizontal"
-                        android:paddingBottom="10dp"
-                        android:textColor="@color/white"
-                        android:textSize="25sp"
-                        tools:text="Title" />
+                        android:layout_marginTop="-10dp">
 
-                    <com.makeramen.roundedimageview.RoundedImageView
-                        android:id="@+id/ivImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginEnd="20dp"
-                        app:riv_corner_radius="10dp"
-                        tools:src="@mipmap/ic_launcher" />
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/backgroundImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            app:riv_corner_radius_bottom_left="40dp"
+                            app:riv_corner_radius_bottom_right="40dp"/>
 
-                    <TextView
-                        android:id="@+id/tvLongDesc"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/ubuntu"
-                        android:paddingLeft="15dp"
-                        android:paddingTop="15dp"
-                        android:paddingRight="15dp"
-                        android:paddingBottom="10dp"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        tools:text="Description" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom_rounded_white"
+                            android:orientation="vertical"
+                            android:padding="20dp"
+                            android:paddingTop="40dp"
+                            android:backgroundTint="#B3FFFFFF">
+
+                            <TextView style="@style/InfoLabel" android:text="@string/ki" />
+                            <TextView android:id="@+id/tvKi" style="@style/InfoValue" />
+
+                            <TextView style="@style/InfoLabel" android:text="@string/ki_m_ximo" />
+                            <TextView android:id="@+id/tvMaxKi" style="@style/InfoValue" />
+
+                            <TextView style="@style/InfoLabel" android:text="@string/raza" />
+                            <TextView android:id="@+id/tvRace" style="@style/InfoValue" />
+
+                            <TextView style="@style/InfoLabel" android:text="@string/genero" />
+                            <TextView android:id="@+id/tvGender" style="@style/InfoValue"/>
+
+                            <TextView style="@style/InfoLabel" android:text="@string/afiliacion" />
+                            <TextView android:id="@+id/tvAffiliation" style="@style/InfoValue"/>
+
+                            <TextView style="@style/InfoLabel" android:text="@string/descripcion" />
+                            <TextView
+                                android:id="@+id/tvLongDesc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/ubuntu"
+                                android:textSize="16sp"
+                                android:paddingBottom="10dp" />
+
+                            <TextView
+                                android:id="@+id/tvTransformaciones"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="@string/transformaciones"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:fontFamily="@font/ubuntu_bold" />
+
+                            <TextView
+                                android:id="@+id/tvNoTransformations"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/ubuntu"
+                                android:textSize="16sp"
+                                android:visibility="gone" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rvTransformations"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:nestedScrollingEnabled="false"
+                                android:overScrollMode="never" />
+                        </LinearLayout>
+                    </FrameLayout>
                 </LinearLayout>
             </ScrollView>
 
@@ -74,11 +161,7 @@
                 android:id="@+id/pbLoading"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_centerInParent="true"
-                />
-
+                android:layout_centerInParent="true"/>
         </RelativeLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </FrameLayout>

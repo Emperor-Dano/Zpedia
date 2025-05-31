@@ -1,11 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#141A31"
+    android:background="@color/purple_background"
     tools:context=".view.fragments.CharacterListFragment">
 
+    <!-- Logo at top left -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="0dp"
+        android:layout_gravity="top|start"
+        android:src="@drawable/main_background"
+        android:alpha="0.7"
+        android:contentDescription="@string/logo" />
+
+    <!-- Logo at top right -->
+    <ImageView
+        android:id="@+id/logo2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="0dp"
+        android:layout_gravity="top|end"
+        android:src="@drawable/logo"
+        android:alpha="0.7"
+        android:contentDescription="@string/logo" />
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:scaleType="centerCrop"
+        android:alpha="0.2"
+        android:background="@android:color/transparent"
+        android:paddingStart="40dp"
+        android:layout_marginEnd="-80dp"
+        tools:src="@mipmap/ic_launcher" />
 
     <ProgressBar
         android:id="@+id/pbLoading"
@@ -16,9 +50,8 @@
         android:indeterminateDuration="1500"
         />
 
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvGames"
+        android:id="@+id/rvCharacters"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

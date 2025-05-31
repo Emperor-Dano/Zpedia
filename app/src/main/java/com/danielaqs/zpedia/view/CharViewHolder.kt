@@ -14,7 +14,7 @@ class CharViewHolder(
 
     fun bind(character: Character){
 
-        binding.tvTitle.text = character.name
+        binding.ChDetailName.text = character.name
         binding.ChAffiliation.text = character.affiliation
 
         Glide.with(binding.root.context)
